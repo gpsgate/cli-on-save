@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="run_cli_command_on_save.459afded-e9f3-4b2f-9661-1914bb1f6f5b" Version="1.0" Language="en-US" Publisher="Tim Richards" />
+        <DisplayName>CLI On Save</DisplayName>
+        <Description xml:space="preserve">Seamlessly runs a CLI command every time you hit 'save', serving as a handy tool to apply CLI operations on your code. Easily run clang-format on C# code upon saving and keep your scripts polished.</Description>
+        <License>LICENSE.txt</License>
+        <Icon>resources\logo3-small.png</Icon>
+        <Tags>clang-format, C#, CSharp, CLI, on save, Command Line</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
+</PackageManifest>

@@ -1,0 +1,21 @@
+; ReadMe: A saved file is used as input to a CLI command.
+; All keys can contain any command wrapped in quotes and separated by '|'
+
+; {File} = full file name and path
+; {SolutionDir} = solution directory path
+; {FileName} = just the file name and extension
+; {FilePath} = just the file path no name.
+
+[Config]
+WorkingDir={SolutionDir}
+Debug=true
+
+[PreSave]
+; Example
+; Commands=cmd=cmd.exe args=/C echo {File} >> {File}_backup.bak|cmd=cmd.exe arg=/C echo =ON^|OFF
+; IncludeExtensions=.cs|.ts
+; ExcludePaths=third-party|bin
+
+[PostSave]
+Commands=cmd=clang-format args=-style=Google -i "{File}"
+IncludeExtensions=.cs
