@@ -31,8 +31,11 @@ Debug=false
 ; IncludeExtensions=.cs|.ts
 
 [PostSave]
-; Post-Save Example calls echo to update a file, and then calls clang-format to format a file.
-Commands=cmd=cmd.exe args=/C echo "processed {FileName}" >> processed.txt|cmd=clang-format args=-style=Google -i "{File}"
+; Runs clang-format (must have clang-format installed and in your path)
+Commands=cmd=clang-format args=-style=Google -i "{File}"
+
+; Example: calls echo to update a file, and then calls clang-format to format a file.
+; Commands=cmd=cmd.exe args=/C echo "processed {FileName}" >> processed.txt|cmd=clang-format args=-style=Google -i "{File}"
 
 ; Example: to point at a clang-format file (.clang-format) just use the typical CLI syntax. Note that the file should be in your working directory
 ; Commands=cmd=clang-format args=-style=file -i "{File}"
