@@ -12,10 +12,10 @@ Contain 3 possible sections: [PreSave], [PostSave] and [Config] as in the follow
 Create a .run-cli-on-save and place these contents in the file.
 ```
 ; ReadMe:
-; {File} = full file name and path
+; {File} = full file name and path of the file being saved.
 ; {SolutionDir} = solution directory path
-; {FileName} = just the file name and extension
-; {FilePath} = just the file path no name.
+; {FileName} = just the file name and extension of the file being saved.
+; {FilePath} = just the file path no name of the file being saved.
 ; Commands, ExcludePaths, and Includepaths can contain multiple entries seperated by "|".
 ; .run-cli-on-save files can be placed in subfolder to change the behavior for that sub-folder.
 
