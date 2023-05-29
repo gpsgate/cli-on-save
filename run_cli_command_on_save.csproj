@@ -63,7 +63,11 @@
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.4.2119" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\logo2-small.png">
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="resources\logo3-small.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
