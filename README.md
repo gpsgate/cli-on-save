@@ -9,7 +9,7 @@ A .run-cli-on-save file is a directory-level configuration file that follows the
 
 Contain 3 possible sections: [PreSave], [PostSave] and [Config] as in the following example.
 
-Create
+Create a .run-cli-on-save and place these contents in the file.
 ```
 ; ReadMe:
 ; {File} = full file name and path
@@ -20,19 +20,23 @@ Create
 ; .run-cli-on-save files can be placed in subfolder to change the behavior for that sub-folder.
 
 [Config]
-; Sets the working directory to the solution directory.
+; Sets the working directory that commands will be run from.
 WorkingDir={SolutionDir}
 ; Set to 'true' to provide feedback under Debug->Windows->Output on your commands such as the command name, args, and internal error info.
 Debug=false
 
 [PreSave]
 ; Pre-save Example calls echo to generate some data, and then echo with an escaped pipe character.
-Commands=cmd=cmd.exe args=/C echo {File} >> {File}_backup.bak|cmd=cmd.exe arg=/C echo =ON^|OFF
-IncludeExtensions=.cs|.ts
+; Commands=cmd=cmd.exe args=/C echo {File} >> {File}_backup.bak|cmd=cmd.exe arg=/C echo =ON^|OFF
+; IncludeExtensions=.cs|.ts
 
 [PostSave]
 ; Post-Save Example calls echo to update a file, and then calls clang-format to format a file.
 Commands=cmd=cmd.exe args=/C echo "processed {FileName}" >> processed.txt|cmd=clang-format args=-style=Google -i "{File}"
+
+; Example: to point at a clang-format file (.clang-format) just use the typical CLI syntax. Note that the file should be in your working directory
+; Commands=cmd=clang-format args=-style=file -i "{File}"
+
 IncludeExtensions=.cs|.ts
 ExcludePaths=third-party|bin
 ```
