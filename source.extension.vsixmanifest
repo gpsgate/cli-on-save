@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="run_cli_command_on_save.459afded-e9f3-4b2f-9661-1914bb1f6f5b" Version="1.0" Language="en-US" Publisher="Tim Richards" />
+        <Identity Id="run_cli_command_on_save.459afded-e9f3-4b2f-9661-1914bb1f6f5b" Version="1.0" Language="en-US" Publisher="SrirachaSource" />
         <DisplayName>CLI On Save</DisplayName>
         <Description xml:space="preserve">Seamlessly runs a CLI command every time you hit 'save', serving as a handy tool to apply CLI operations on your code. Easily run clang-format on C# code upon saving and keep your scripts polished.</Description>
+        <MoreInfo>https://github.com/SrirachaSource/cli-on-save</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>resources\logo3-small.png</Icon>
         <Tags>clang-format, C#, CSharp, CLI, on save, Command Line</Tags>

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("run_cli_command_on_save")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Seamlessly runs a CLI command every time you hit 'save', serving as a handy tool to apply CLI operations on your code. Easily run clang-format on C# code upon saving and keep your scripts polished.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("SrirachaSource")]
 [assembly: AssemblyProduct("run_cli_command_on_save")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("MIT 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,3 +31,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: Guid("b065d379-c352-4255-8fcf-908f517fe5e7")]
