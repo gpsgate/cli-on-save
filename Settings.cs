@@ -124,17 +124,15 @@ namespace RunCliCommandOnSave {
     }
 
     private string LocateSettings(string startingPath) {
-      var cfgFile = new FileInfo(Path.Combine(startingPath, kSettingsFileName));
       var dir = new DirectoryInfo(startingPath);
-      while (!cfgFile.Exists && dir.Parent != null) {
-        var configs = dir.GetFiles(kSettingsFileName);
-        if (configs.Length > 0) {
-          cfgFile = configs[0];
-          break;
+      while (dir != null) {
+        var cfgFile = Path.Combine(dir.FullName, kSettingsFileName);
+        if (File.Exists(cfgFile)) {
+          return cfgFile;
         }
         dir = dir.Parent;
       }
-      return cfgFile.Exists ? cfgFile.FullName : null;
+      return null;
     }
 
     [DllImport("kernel32")]
