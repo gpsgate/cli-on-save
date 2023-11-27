@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug,Release]
+    env:
+      Solution_name: run_cli_command_on_save.sln
+    steps:
+      # Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install and setup environment
+      - name: Install .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1
+
+      # Restore dependencies and build
+      - name: Restore
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+      - name: Build
+        run: msbuild $env:Solution_Name /t:Build /p:Configuration=$env:Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+
+      # Publish as GH artifact
+      - name: Repository Name
+        id: name
+        shell: bash
+        run: |
+          printf 'value=%s\n' "$(basename "${{ github.repository }}")" >> "$GITHUB_OUTPUT"
+      - name: Publish
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.name.outputs.value }}-${{ matrix.configuration }}.vsix
+          path: ${{ github.workspace }}/bin/${{ matrix.configuration }}/run_cli_command_on_save.vsix
